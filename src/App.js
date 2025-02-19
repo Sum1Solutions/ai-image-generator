@@ -4,14 +4,12 @@ function App() {
   const [text, setText] = useState("");
   const [provider, setProvider] = useState("openai");
   const [image, setImage] = useState(null);
-  const [tokens, setTokens] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const generateImage = async () => {
     setLoading(true);
     setImage(null);
-    setTokens(null);
     setError(null);
 
     try {
@@ -27,7 +25,6 @@ function App() {
 
       const data = await response.json();
       setImage(data.imageUrl);
-      setTokens(data.usage.tokens);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -73,7 +70,6 @@ function App() {
         <div>
           <h3>Your Magical Creation</h3>
           <img src={image} alt="Generated" width="300px" style={{ borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0,0,0,0.2)" }} />
-          <p>Tokens used: {tokens}</p>
         </div>
       )}
     </div>
