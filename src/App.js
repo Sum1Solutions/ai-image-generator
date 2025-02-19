@@ -70,6 +70,22 @@ function App() {
         <div>
           <h3>Your Magical Creation</h3>
           <img src={image} alt="Generated" width="300px" style={{ borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0,0,0,0.2)" }} />
+          <br />
+          <button
+            onClick={() => window.open(image, '_blank')}
+            style={{
+              backgroundColor: "#10B981",
+              color: "white",
+              padding: "8px 16px",
+              fontSize: "14px",
+              borderRadius: "5px",
+              cursor: "pointer",
+              border: "none",
+              marginTop: "10px"
+            }}
+          >
+            Open Full Size ↗️
+          </button>
         </div>
       )}
     </div>
