@@ -1,35 +1,75 @@
-# AI Image Generator
+# Tracey's Image-inator 
 
-This is a simple AI image generator that uses OpenAI (DALL·E) and Anthropic (Claude) to generate images from text prompts.
+A magical AI image generator that uses both OpenAI (DALL·E) and Anthropic (Claude) to create stunning images from text prompts, showing you results from both providers side by side!
 
-## 📌 Features
-- Input a text prompt
-- Select AI provider (OpenAI or Anthropic)
-- Generate an AI-created image
-- Display token usage per request
+## Features
+- Generate images from both DALL·E and Claude simultaneously
+- Customize image generation options:
+  - Size (1024x1024, 1792x1024 landscape, 1024x1792 portrait)
+  - Style (vivid or natural)
+  - Quality (standard or HD)
+- Save generation history (last 20 generations)
+- Download generated images
+- View full-size images in new tab
+- Beautiful, responsive three-column layout
+- Real-time loading states
 
-## 🚀 Setup & Run
+## Setup & Run
 1. Install dependencies:
    ```sh
    npm install
    ```
-2. Start development server:
+
+2. Create a `.env` file with your Cloudflare Worker URL:
+   ```sh
+   REACT_APP_WORKER_URL=your-cloudflare-worker-url
+   ```
+
+3. Start development server:
    ```sh
    npm start
    ```
-3. Deploy to Cloudflare Pages when ready!
 
-## 🌐 Deployment
-This app is designed to work with a Cloudflare Worker that connects to OpenAI and Anthropic. Set your Cloudflare Worker URL in a **.env** file:
+4. Build for production:
+   ```sh
+   npm run build
+   ```
 
-```sh
-REACT_APP_WORKER_URL=your-cloudflare-worker-url
-```
+## Deployment
+This app is designed to work with a Cloudflare Worker backend. The frontend is deployed on Cloudflare Pages.
 
-Then, build and deploy:
+### Environment Variables
+- `REACT_APP_WORKER_URL`: URL of your Cloudflare Worker (e.g., https://ai-image-worker.your-subdomain.workers.dev)
 
-```sh
-npm run build
-```
+### Deployment Steps
+1. Push changes to GitHub
+2. Cloudflare Pages will automatically build and deploy your changes
+3. Your app will be available at your Cloudflare Pages URL
 
-Enjoy AI-powered image generation! 🚀
+## Local Storage
+The app uses localStorage to:
+- Save your last 20 image generations
+- Preserve them across page reloads
+- Store metadata like prompts and generation options
+
+## Security
+- CORS is properly configured for production
+- API keys are securely stored in Cloudflare Worker secrets
+- No sensitive data is stored in localStorage
+
+## Usage
+1. Enter a text prompt describing the image you want
+2. Customize generation options if desired
+3. Click "Generate Images"
+4. Wait for both DALL·E and Claude to create their interpretations
+5. Download, view full size, or browse your generation history
+
+## Tech Stack
+- React
+- Create React App
+- Cloudflare Pages
+- Cloudflare Workers
+- OpenAI DALL·E 3
+- Anthropic Claude
+
+Enjoy creating magical images! 
