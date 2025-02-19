@@ -37,8 +37,8 @@ function App() {
 
   return (
     <div style={{ textAlign: "center", padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      <h1 style={{ color: "#4F46E5" }}>AI Image Generator</h1>
-      <p style={{ marginBottom: "10px" }}>Enter a text prompt and select a provider.</p>
+      <h1 style={{ color: "#4F46E5" }}>Tracey's Image-inator</h1>
+      <p style={{ marginBottom: "10px" }}>Enter a text prompt and let's create some magic! ✨</p>
 
       <textarea
         value={text}
@@ -64,14 +64,14 @@ function App() {
           borderRadius: "5px", cursor: "pointer", border: "none"
         }}
       >
-        {loading ? "Generating..." : "Generate Image"}
+        {loading ? "Creating Magic..." : "Generate Image"}
       </button>
 
       {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
       
       {image && (
         <div>
-          <h3>Generated Image</h3>
+          <h3>Your Magical Creation</h3>
           <img src={image} alt="Generated" width="300px" style={{ borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0,0,0,0.2)" }} />
           <p>Tokens used: {tokens}</p>
         </div>
